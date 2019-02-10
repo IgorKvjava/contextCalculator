@@ -37,8 +37,12 @@ public class ButtonController {
     @FXML
     private void toDisplayDigit(ActionEvent event){
         //method (inputKey) -> operand.append
-        operandDigit = Double.parseDouble(inputKey(event));
-        displayOperand.setText(String.valueOf(operandDigit));
+        try {
+            operandDigit = Double.parseDouble(inputKey(event));
+            displayOperand.setText(String.valueOf(operandDigit));
+        }catch (NumberFormatException e){
+            operandDigit = 0.;
+        }
     }
 
     @FXML
